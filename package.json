@@ -1,0 +1,16 @@
+{
+  "dependencies": {
+    "cucumber": "^6.0.7",
+    "cucumber-html-reporter": "^6.0.0",
+    "dotenv": "^16.3.1",
+    "moment": "^2.29.4",
+    "puppeteer": "^20.7.4",
+    "randomstring": "^1.3.0"
+  },
+  "scripts": {
+    "alltest": "cucumber-js -f json:cucumber-report.json",
+    "report": "node report.js",
+    "itera": "cucumber-js -f json:cucumber-report.json features/itera.feature",
+    "ae": "cucumber-js -f json:cucumber-report.json features/automationexercise.feature"
+  }
+}
