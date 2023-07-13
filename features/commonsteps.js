@@ -41,7 +41,7 @@ function closeBrowser() {
     });
 }
 
-async function alreadyExistMail() {
+/*async function alreadyExistMail() {
     await PuppeteerHelper.page.type(textFSelectors.login.emailTextF, "Tesztelek@tesztelek.com");
     await PuppeteerHelper.page.type(textFSelectors.login.passTextF, "TesztElek1");
     await PuppeteerHelper.page.click(buttonSelectors.login.loginBtn);
@@ -59,7 +59,7 @@ async function alreadyExistMail() {
         await PuppeteerHelper.page.click(buttonSelectors.delete_account);
         await PuppeteerHelper.page.click(buttonSelectors.login);
     }
-}
+}*/
 
 
 
@@ -68,9 +68,9 @@ openBrowser()
 closeBrowser()
 openBrowserAE()
 verifysite()
-module.exports = {
+/*module.exports = {
     alreadyExistMail,
     
-}
+}*/
 
 
