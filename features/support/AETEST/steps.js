@@ -8,6 +8,7 @@ const checkboxSelectors = require("./selectors/checkboxSelectors");
 const buttonSelectors = require("../AETEST/selectors/buttonSelectors");
 const radioSelectors = require("./selectors/radioSelectors");
 const { alreadyExistMail } = require("../../commonsteps");
+const labelSelectors = require("./selectors/labelSelectors");
 
 
 //Register User
@@ -223,6 +224,25 @@ Then("Verify error 'Your email or password is incorrect!' is visible", async fun
     }
 });
 
+//Logout user
 When("Click 'Logout' button", async function(){
-    await PuppeteerHelper.page.click(ButtonSelectors.logout)
+    await PuppeteerHelper.page.click(ButtonSelectors.logout);
+});
+
+//Register User with existing email
+
+When("Enter name and already registered email address", async function(){
+    await PuppeteerHelper.page.type(textFSelectors.name, process.env.TEST_USER_NAME);
+    await PuppeteerHelper.page.type(textFSelectors.email, process.env.MAIL);
+});
+
+Then("Verify error 'Email Address already exist!' is visible", async function(){
+    const text = "Email Address already exist!";
+    const content = await PuppeteerHelper.page.content();
+
+    await PuppeteerHelper.page.waitForSelector(labelSelectors.email_already)
+
+    if(text === content){
+        PuppeteerHelper.closeBrowser();
+    }
 });

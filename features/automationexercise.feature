@@ -71,6 +71,18 @@ Feature: Automationexercise autoTest
         Then Verify 'New User Signup!' is visible
         When Close Browser
 
+    Scenario: Register User with existing email
+        Given Launch new browser and open AEURL
+        Then Verify that home page is visible successfully
+        When Click on 'Signup / Login' button
+        Then Verify 'Login to your account' is visible
+        When Enter name and already registered email address
+            And Click 'Signup' button
+        Then Verify error 'Email Address already exist!' is visible
+
+        
+
+
 
     #Examples:
     #   |name       |email                   |password  |
