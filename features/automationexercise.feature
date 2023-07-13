@@ -80,7 +80,13 @@ Feature: Automationexercise autoTest
             And Click 'Signup' button
         Then Verify error 'Email Address already exist!' is visible
 
-        
+    Scenario: Contact Us Form
+        Given Launch new browser and open AEURL
+        Then Verify that home page is visible successfully
+        When Click on 'Contact Us' button
+        Then Verify 'GET IN TOUCH' is visible
+        When Enter name, email, subject and message
+            And Upload file
 
 
 
