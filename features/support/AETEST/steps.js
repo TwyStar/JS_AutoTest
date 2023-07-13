@@ -188,9 +188,9 @@ Then("Verify 'Login to your account' is visible", async function () {
     }
 });
 
-When("Enter correct email address and password", async function (email, password) {
-    await PuppeteerHelper.page.type(textFSelectors.login.emailTextF, email);
-    await PuppeteerHelper.page.type(textFSelectors.login.passTextF, password);
+When("Enter correct email address and password", async function () {
+    await PuppeteerHelper.page.type(textFSelectors.login.emailTextF, process.env.MAIL);
+    await PuppeteerHelper.page.type(textFSelectors.login.passTextF, process.env.PASS);
 });
 
 When("Click 'login' button", async function () {
@@ -221,4 +221,8 @@ Then("Verify error 'Your email or password is incorrect!' is visible", async fun
     if (!text === content) {
         PuppeteerHelper.closeBrowser()
     }
+});
+
+When("Click 'Logout' button", async function(){
+    await PuppeteerHelper.page.click(ButtonSelectors.logout)
 });

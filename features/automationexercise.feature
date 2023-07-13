@@ -60,6 +60,16 @@ Feature: Automationexercise autoTest
         Then Verify error 'Your email or password is incorrect!' is visible
         When Close Browser
 
+    Scenario: Logout User
+        Given Launch new browser and open AEURL
+        Then Verify that home page is visible successfully
+        When Click on 'Signup / Login' button
+        Then Verify 'Login to your account' is visible
+        When Enter correct email address and password
+            And Click 'login' button
+        Then Verify that 'Logged in as username' is visible
+        Then Verify 'New User Signup!' is visible
+        When Close Browser
 
 
     #Examples:
